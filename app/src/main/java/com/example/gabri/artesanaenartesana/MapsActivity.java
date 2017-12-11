@@ -180,6 +180,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         locationManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 10000, 0, locationListener );
 
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
