@@ -7,6 +7,8 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class TiendasFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -46,7 +48,14 @@ public class TiendasFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate( R.layout.fragment_tiendas, container, false );
+        //return inflater.inflate( R.layout.fragment_tiendas, container, false );
+        View view = inflater.inflate( R.layout.fragment_tiendas, container, false );
+        String[] cosasLista = {"COSA 1 LISTA 2", "COSA 2 LISTA2"};
+        ListView lista = (ListView) view.findViewById( R.id.lista2 );
+
+        ArrayAdapter<String> adaptadorlista = new ArrayAdapter<String>( getActivity(), android.R.layout.simple_list_item_1, cosasLista );
+        lista.setAdapter( adaptadorlista );
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
