@@ -50,7 +50,7 @@ public class BaresFragment extends Fragment {
         // Inflate the layout for this fragment
         // return inflater.inflate( R.layout.fragment_bares, container, false );
         View view = inflater.inflate( R.layout.fragment_bares, container, false );
-        String[] cosasLista = {"COSA 1 LISTA 1", "COSA 2 LISTA 1"};
+        String[] cosasLista = {"La Birroteca", "Fogg Bar","Birra Y Paz","Beer House","Pez Tortilla","Irreale","Cervecissimus","B Four Beer","Troade","La Malteria"};
         ListView lista = (ListView) view.findViewById(R.id.lista);
 
         ArrayAdapter<String> adaptadorlista = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, cosasLista);
