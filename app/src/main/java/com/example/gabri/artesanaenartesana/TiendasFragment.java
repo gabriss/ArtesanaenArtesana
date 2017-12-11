@@ -1,12 +1,14 @@
 package com.example.gabri.artesanaenartesana;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -19,6 +21,7 @@ public class TiendasFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    ListView lista;
 
     private OnFragmentInteractionListener mListener;
 
@@ -51,10 +54,18 @@ public class TiendasFragment extends Fragment {
         //return inflater.inflate( R.layout.fragment_tiendas, container, false );
         View view = inflater.inflate( R.layout.fragment_tiendas, container, false );
         String[] cosasLista = {"Labirratorium", "The Beer Garden", "La Buena Cerveza", "Más Que Cervezas", "Be Hoppy", "La Tienda de la Cerveza", "+De Cien Cervezas"};
-        ListView lista = (ListView) view.findViewById( R.id.lista2 );
+        lista = (ListView) view.findViewById( R.id.lista2 );
 
         ArrayAdapter<String> adaptadorlista = new ArrayAdapter<String>( getActivity(), android.R.layout.simple_list_item_1, cosasLista );
         lista.setAdapter( adaptadorlista );
+
+
+        lista.setOnItemClickListener( new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity( new Intent( getActivity(), MapsActivity.class ) );
+            }
+        } );
         return view;
     }
 
