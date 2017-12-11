@@ -1,12 +1,14 @@
 package com.example.gabri.artesanaenartesana;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -19,6 +21,7 @@ public class BaresFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    ListView lista;
 
     private OnFragmentInteractionListener mListener;
 
@@ -50,13 +53,22 @@ public class BaresFragment extends Fragment {
         // Inflate the layout for this fragment
         // return inflater.inflate( R.layout.fragment_bares, container, false );
         View view = inflater.inflate( R.layout.fragment_bares, container, false );
-        String[] cosasLista = {"La Birroteca", "Fogg Bar","Birra Y Paz","Beer House","Pez Tortilla","Irreale","Cervecissimus","B Four Beer","Troade","La Malteria"};
-        ListView lista = (ListView) view.findViewById(R.id.lista);
+        String[] cosasLista = {"La Birroteca", "Fogg Bar", "Birra Y Paz", "Beer House", "Pez Tortilla", "Irreale", "Cervecissimus", "B Four Beer", "Troade", "La Malteria"};
+        lista = (ListView) view.findViewById( R.id.lista );
 
-        ArrayAdapter<String> adaptadorlista = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, cosasLista);
-        lista.setAdapter(adaptadorlista);
+        ArrayAdapter<String> adaptadorlista = new ArrayAdapter<String>( getActivity(), android.R.layout.simple_list_item_1, cosasLista );
+        lista.setAdapter( adaptadorlista );
+
+        lista.setOnItemClickListener( new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity( new Intent( getActivity(), MapsActivity.class ) );
+            }
+        } );
         return view;
+
     }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

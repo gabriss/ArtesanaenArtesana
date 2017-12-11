@@ -177,7 +177,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LocationManager locationManager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
         Location location = locationManager.getLastKnownLocation( LocationManager.GPS_PROVIDER );
         actulizarUbicacion( location );
-        locationManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 10000, 0, locationListener );
+        locationManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 5, 0, locationListener );
 
     }
 
